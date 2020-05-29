@@ -4,7 +4,6 @@ import {
     withRouter
 } from 'react-router-dom';
 import './AppHeader.css';
-import pollIcon from '../poll.svg';
 import { Layout, Menu, Dropdown, Icon } from 'antd';
 const Header = Layout.Header;
     
@@ -26,14 +25,19 @@ class AppHeader extends Component {
           menuItems = [
             <Menu.Item key="/">
               <Link to="/">
-                <Icon type="home" className="nav-icon" />
+                Home
               </Link>
             </Menu.Item>,
-            <Menu.Item key="/poll/new">
-            <Link to="/poll/new">
-              <img src={pollIcon} alt="poll" className="poll-icon" />
+            <Menu.Item key="/data">
+            <Link to="/data">
+                DATA 찾기
             </Link>
           </Menu.Item>,
+           <Menu.Item key="/open">
+           <Link to="/open">
+               Open Api 
+           </Link>
+         </Menu.Item>,
           <Menu.Item key="/profile" className="profile-menu">
                 <ProfileDropdownMenu 
                   currentUser={this.props.currentUser} 
@@ -42,6 +46,21 @@ class AppHeader extends Component {
           ]; 
         } else {
           menuItems = [
+            <Menu.Item key="/">
+            <Link to="/">
+              home
+            </Link>
+          </Menu.Item>,
+          <Menu.Item key="/data">
+          <Link to="/data">
+              DATA 찾기
+          </Link>
+        </Menu.Item>,
+         <Menu.Item key="/open">
+         <Link to="/open">
+             Open Api 
+         </Link>
+       </Menu.Item>,
             <Menu.Item key="/login">
               <Link to="/login">Login</Link>
             </Menu.Item>,
@@ -55,7 +74,7 @@ class AppHeader extends Component {
             <Header className="app-header">
             <div className="container">
               <div className="app-title" >
-                <Link to="/">Polling App</Link>
+                <Link to="/">File to API</Link>
               </div>
               <Menu
                 className="app-menu"
